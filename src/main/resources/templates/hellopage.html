@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>All Persons</title>
+
+</head>
+<body>
+<h1> Welcome to Library Manager !</h1>
+
+<hr/>
+<br/>
+<form th:method="GET" th:action="@{/people}">
+    <input type="submit" value="Go to people page">
+</form>
+<br/>
+<form th:method="GET" th:action="@{/books}">
+    <input type="submit" value="Go to books page">
+</form>
+</body>
+</html>
