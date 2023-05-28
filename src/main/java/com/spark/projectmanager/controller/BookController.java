@@ -1,16 +1,16 @@
-package com.spark.libraryspringboot.controller;
+package com.spark.projectmanager.controller;
 
-import com.spark.libraryspringboot.model.Book;
-import com.spark.libraryspringboot.model.Person;
-import com.spark.libraryspringboot.services.BookService;
-import com.spark.libraryspringboot.services.PeopleService;
-import jakarta.validation.Valid;
+import com.spark.projectmanager.model.Book;
+import com.spark.projectmanager.model.Person;
+import com.spark.projectmanager.services.BookService;
+import com.spark.projectmanager.services.PeopleService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.Optional;
 
 @Controller
@@ -34,11 +34,11 @@ public class BookController {
     @GetMapping
     public String findAll(Model model, @RequestParam(value = "pagecount", required = false) Integer pageCount,
                           @RequestParam(value = "pagesize", required = false) Integer pageSize,
-                          @RequestParam(value = "sorted",required = false) boolean sorted) {
+                          @RequestParam(value = "sorted", required = false) boolean sorted) {
         if (pageSize == null || pageCount == null) {
             model.addAttribute("books", bookService.findAll(sorted));
-        } else  {
-model.addAttribute("books", bookService.findAll(pageSize, pageCount, sorted));
+        } else {
+            model.addAttribute("books", bookService.findAll(pageSize, pageCount, sorted));
         }
 
         return "books/getall";
@@ -105,12 +105,13 @@ model.addAttribute("books", bookService.findAll(pageSize, pageCount, sorted));
     }
 
     @GetMapping("/search")
-    public String getSearchBookByTitle(){
+    public String getSearchBookByTitle() {
         return "books/search";
     }
+
     @PostMapping("/search")
-    public String searchBookByTitle(Model model, @RequestParam("letters") String letters){
-        model.addAttribute("books",bookService.searchBook(letters));
+    public String searchBookByTitle(Model model, @RequestParam("letters") String letters) {
+        model.addAttribute("books", bookService.searchBook(letters));
         return "books/search";
     }
 }

@@ -1,7 +1,7 @@
-package com.spark.libraryspringboot.repositories;
+package com.spark.projectmanager.repositories;
 
 
-import com.spark.libraryspringboot.model.Book;
+import com.spark.projectmanager.model.Book;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
