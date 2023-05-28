@@ -1,4 +1,4 @@
-package com.spark.libraryspringboot.controller;
+package com.spark.projectmanager.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;

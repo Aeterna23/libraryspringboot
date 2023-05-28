@@ -1,4 +1,4 @@
-package com.spark.libraryspringboot;
+package com.spark.projectmanager;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

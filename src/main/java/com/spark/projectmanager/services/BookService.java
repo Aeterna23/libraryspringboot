@@ -1,9 +1,9 @@
-package com.spark.libraryspringboot.services;
+package com.spark.projectmanager.services;
 
 
-import com.spark.libraryspringboot.model.Book;
-import com.spark.libraryspringboot.model.Person;
-import com.spark.libraryspringboot.repositories.BooksRepository;
+import com.spark.projectmanager.model.Book;
+import com.spark.projectmanager.model.Person;
+import com.spark.projectmanager.repositories.BooksRepository;
 import org.hibernate.Hibernate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.PageRequest;
@@ -12,6 +12,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.time.LocalDateTime;
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
@@ -83,7 +84,7 @@ public class BookService {
         booksRepository.findById(id).ifPresent(
                 book -> {
                     book.setOwner(holder);
-                    book.setDateOfTaking(LocalDateTime.now());
+                    book.setDateOfTaking(new Date());
                 }
         );
         Hibernate.initialize(holder);

@@ -1,8 +1,8 @@
-package com.spark.libraryspringboot.util;
+package com.spark.projectmanager.util;
 
 
-import com.spark.libraryspringboot.model.Person;
-import com.spark.libraryspringboot.services.PeopleService;
+import com.spark.projectmanager.model.Person;
+import com.spark.projectmanager.services.PeopleService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.validation.Errors;
@@ -26,8 +26,8 @@ public class PersonValidator implements Validator {
     @Override
     public void validate(Object target, Errors errors) {
         Person person = (Person) target;
-        if (peopleService.findByFullName(person.getFullName()).isPresent())
-            errors.rejectValue("fullName", "", "Already exists person with same full name.");
+        if (peopleService.findByUsername(person.getUsername()).isPresent())
+            errors.rejectValue("username", "", "Already exists person with same username.");
         if (person.getBirthDate() == null) {
             errors.rejectValue("birthDate", "", "Birthday cannot be blank. Please check.");
         }

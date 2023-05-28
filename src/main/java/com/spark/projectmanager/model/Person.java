@@ -1,13 +1,13 @@
-package com.spark.libraryspringboot.model;
+package com.spark.projectmanager.model;
 
 
-import jakarta.persistence.*;
-import jakarta.validation.constraints.Min;
-import jakarta.validation.constraints.NotEmpty;
-import jakarta.validation.constraints.Size;
 import lombok.*;
 import org.hibernate.annotations.Table;
 
+import javax.persistence.*;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.Size;
 import java.util.List;
 
 
@@ -24,6 +24,11 @@ public class Person {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
+    @NotEmpty(message = "Имя не должно быть пустым")
+    @Size(min = 2, max = 100, message = "Имя должно быть от 2 до 100 символов длиной")
+    @Column(name = "username")
+    private String username;
+
     @NotEmpty(message = "Person full name cannot be empty.")
     @Size(min = 3, message = "Name should contain at least 3 digits.")
     @Column(name = "full_name")
@@ -32,6 +37,9 @@ public class Person {
     @Column(name = "birth_date")
     @Min(value = 1900, message = "Person is too old. Check the birth date please.")
     private Integer birthDate;
+
+    @Column(name = "password")
+    private String password;
 
     @OneToMany(mappedBy = "owner")
     private List<Book> books;

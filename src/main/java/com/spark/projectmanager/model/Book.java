@@ -1,13 +1,13 @@
-package com.spark.libraryspringboot.model;
+package com.spark.projectmanager.model;
 
-import jakarta.persistence.*;
-import jakarta.validation.constraints.Min;
-import jakarta.validation.constraints.NotEmpty;
-import jakarta.validation.constraints.Size;
 import lombok.*;
 import org.hibernate.annotations.Table;
 
-import java.time.LocalDateTime;
+import javax.persistence.*;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.Size;
+import java.util.Date;
 
 
 @Data
@@ -44,7 +44,7 @@ public class Book {
 
     @Column(name = "date_of_taking")
     @Temporal(TemporalType.TIMESTAMP)
-    private LocalDateTime dateOfTaking;
+    private Date dateOfTaking;
 
     @Transient
     private boolean isExpired;

@@ -1,15 +1,15 @@
-package com.spark.libraryspringboot.controller;
+package com.spark.projectmanager.controller;
 
 
-import com.spark.libraryspringboot.model.Person;
-import com.spark.libraryspringboot.services.PeopleService;
-import com.spark.libraryspringboot.util.PersonValidator;
-import jakarta.validation.Valid;
+import com.spark.projectmanager.model.Person;
+import com.spark.projectmanager.services.PeopleService;
+import com.spark.projectmanager.util.PersonValidator;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
+import javax.validation.Valid;
 
 @Controller
 @RequestMapping("/people")
@@ -33,7 +33,7 @@ public class PersonController {
     @GetMapping("/{id}")
     public String getPerson(@PathVariable("id") int id, Model model) {
         model.addAttribute("person", peopleService.findById(id));
-        model.addAttribute("books", peopleService.findBooks(id));
+        //model.addAttribute("books", peopleService.findBooks(id));
         return "people/getperson";
     }
 
